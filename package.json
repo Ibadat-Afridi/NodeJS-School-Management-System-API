@@ -1,0 +1,22 @@
+{
+  "name": "school-management-system",
+  "version": "1.0.0",
+  "description": "This is an API developed With Node JS,Express JS,Mongoose ORM, MongoDB for School Managment System which performs CRUD opetions",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ibadat-Afridi/NodeJS-School-Management-System-API.git"
+  },
+  "keywords": [
+    "school"
+  ],
+  "author": "Ibadat-Afridi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ibadat-Afridi/NodeJS-School-Management-System-API/issues"
+  },
+  "homepage": "https://github.com/Ibadat-Afridi/NodeJS-School-Management-System-API#readme"
+}
