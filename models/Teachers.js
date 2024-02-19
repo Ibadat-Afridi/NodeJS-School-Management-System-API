@@ -22,6 +22,10 @@ const Teachers_Schema = mongoose.Schema({
     type: String,
     required: false,
   },
+  currenty_teaching_in: {
+    type: String,
+    required: true,
+  },
   address: {
     type: String,
     required: true,
@@ -32,7 +36,8 @@ const Teachers_Schema = mongoose.Schema({
     unique: true,
   },
   citizenship: {
-    type: String,
+    type: Array,
+    default: [],
     require: true,
   },
   graduaded_in: {
@@ -67,4 +72,6 @@ const Teachers_Schema = mongoose.Schema({
 });
 
 const Teachers = mongoose.model("Teachers", Teachers_Schema);
+
 export default Teachers;
+

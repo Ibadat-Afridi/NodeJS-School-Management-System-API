@@ -2,9 +2,9 @@ import express from "express";
 // import { Students } from "../models/Students";
 import Students from "../models/Students.js";
 
-const router = express.Router();
+const router1 = express.Router();
 
-router.post("/", async (req, res) => {
+router1.post("/", async (req, res) => {
   try {
     const data = req.body;
 
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router1.get("/", async (req, res) => {
   try {
     const data = await Students.find();
     console.log("Student Data Fetched Successfully");
@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router1.put("/:id", async (req, res) => {
   try {
     const studentId = req.params.id;
     const UpdatedStudentData = await req.body;
@@ -52,7 +52,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router1.delete("/:id", async (req, res) => {
   try {
     const studentId = req.params.id;
     const response = await Students.findByIdAndDelete(studentId);
@@ -69,4 +69,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-export default router;
+export default router1;
