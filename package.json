@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is an API developed With Node JS,Express JS,Mongoose ORM, MongoDB for School Managment System which performs CRUD operattions",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "nodemon server.js"
   },
