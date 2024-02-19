@@ -52,4 +52,21 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    const studentId = req.params.id;
+    const response = await Students.findByIdAndDelete(studentId);
+    if (!studentId) {
+      res.status(404).json({ error: "Student Not Found" });
+    }
+    console.log("Student Record Deleted");
+    res
+      .status(200)
+      .json("Successfully Student Record Deleted From MongoDB DataBase");
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 export default router;
