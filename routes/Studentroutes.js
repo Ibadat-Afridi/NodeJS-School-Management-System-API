@@ -29,4 +29,27 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.put("/:id", async (req, res) => {
+  try {
+    const studentId = req.params.id;
+    const UpdatedStudentData = await req.body;
+    const response = await Students.findByIdAndUpdate(
+      studentId,
+      UpdatedStudentData,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    if (!UpdatedStudentData) {
+      res.status(404).json({ error: "Student Not Found" });
+    }
+    console.log("Student Data Updated Successfully");
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 export default router;
