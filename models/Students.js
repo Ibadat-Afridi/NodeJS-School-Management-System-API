@@ -29,10 +29,12 @@ const Students_Schema = mongoose.Schema({
   address: {
     type: String,
     required: true,
+    unique:true
   },
   phone_no: {
     type: String,
     required: true,
+    unique:true
   },
   blood_group: {
     type: String,
