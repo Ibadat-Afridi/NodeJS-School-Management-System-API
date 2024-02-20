@@ -49,6 +49,19 @@ router2.put("/:id", async (req, res) => {
   }
 });
 
-
+router2.delete("/:id", async (req, res) => {
+  try {
+    const TeacherId = req.params.id;
+    const response = await Teachers.findByIdAndDelete(TeacherId);
+    if (!TeacherId) {
+      res.status(404).json({ error: "Teacher Not Found" });
+    }
+    console.log("Teacher Record Deleted Successfully");
+    res.status(200).json("Teacher Record Deleted");
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 export default router2;
