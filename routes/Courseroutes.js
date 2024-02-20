@@ -16,4 +16,15 @@ router3.post("", async (req, res) => {
   }
 });
 
+router3.get("", async (req, res) => {
+  try {
+    const response = await Courses.find();
+    console.log("Fetched Courses Records");
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 export default router3;
