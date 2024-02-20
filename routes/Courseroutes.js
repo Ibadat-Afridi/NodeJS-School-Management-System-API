@@ -27,4 +27,27 @@ router3.get("", async (req, res) => {
   }
 });
 
+router3.put("/:id", async (req, res) => {
+  try {
+    const CourseId = req.params.id;
+    const UpdatedCourseData = req.body;
+    const response = await Courses.findByIdAndUpdate(
+      CourseId,
+      UpdatedCourseData,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    if (!CourseId) {
+      res.status(404).json({ error: "Course Not Found" });
+    }
+    console.log("Course Data Updated Successfully");
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 export default router3;
