@@ -26,4 +26,29 @@ router2.get("/", async (req, res) => {
   }
 });
 
+router2.put("/:id", async (req, res) => {
+  try {
+    const TeacherId = req.params.id;
+    const UpdatedTeacherData = await req.body;
+    const response = await Teachers.findByIdAndUpdate(
+      TeacherId,
+      UpdatedTeacherData,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    if (!UpdatedTeacherData) {
+      res.status(404).json({ error: "Teacher Not Found" });
+    }
+    console.log("Teacher Data Updated Successfully");
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+
 export default router2;
