@@ -50,4 +50,19 @@ router3.put("/:id", async (req, res) => {
   }
 });
 
+router3.delete("/:id", async (req, res) => {
+  try {
+    const CourseId = req.params.id;
+    const response = await Courses.findByIdAndDelete(CourseId);
+    if (!CourseId) {
+      res.status(404).json({ error: "Course Not Found" });
+    }
+    console.log("Course Record Deleted");
+    res.status(200).json({ message: "Course Record Deleted Successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 export default router3;
